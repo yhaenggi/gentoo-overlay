@@ -1,1 +1,0 @@
-/home/k1773r/git/phison-gentoo/phison-0.91.ebuild
