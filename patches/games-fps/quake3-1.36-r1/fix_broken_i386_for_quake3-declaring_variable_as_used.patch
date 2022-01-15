@@ -1,0 +1,11 @@
+--- a/code/qcommon/vm_x86.c	2008-08-18 01:22:06.000000000 +0200
++++ b/code/qcommon/vm_x86.c	2019-03-31 21:48:44.089473554 +0200
+@@ -90,7 +90,7 @@
+ static void (*const asmCallPtr)(void) = AsmCall;
+ 
+ 
+-static	int		callMask = 0;
++static 	int  __attribute__((used))	callMask = 0;
+ 
+ static	int	instruction, pass;
+ static	int	lastConst = 0;
