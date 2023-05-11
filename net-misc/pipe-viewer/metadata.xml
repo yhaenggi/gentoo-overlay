@@ -10,8 +10,8 @@
 		<remote-id type="github">trizen/pipe-viewer</remote-id>
 	</upstream>
 	<maintainer type="person">
-		<email>kai@kske.dev</email>
-		<name>Kai S. K. Engelbart</name>
+		<email>yhaenggi-git-public@darkgamex.ch</email>
+		<name>yhaenggi</name>
 	</maintainer>
 	<use>
 		<flag name="gtk">Install the GTK3 GUI</flag>
