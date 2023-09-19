@@ -12,7 +12,7 @@ EGIT_REPO_URI="https://github.com/steve-chamberlin/fc8-compression"
 EGIT_COMMIT="2f5ac4b27ef0c75583a721886dbb3a28da38f56a"
 EGIT_BRANCH="master"
 
-LICENSE="GPL-2"
+LICENSE=""
 SLOT="0"
 KEYWORDS="amd64 x86"
 
