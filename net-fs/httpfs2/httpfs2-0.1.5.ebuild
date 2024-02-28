@@ -9,7 +9,7 @@ SRC_URI="mirror://sourceforge/httpfs/httpfs2/httpfs2-${PV}.tar.gz"
 
 SLOT="0"
 LICENSE="GPL-2"
-KEYWORDS="~x86 ~amd64"
+KEYWORDS="x86 amd64"
 
 IUSE=""
 
