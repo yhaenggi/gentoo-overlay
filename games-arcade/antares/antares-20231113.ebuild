@@ -19,7 +19,7 @@ KEYWORDS="~amd64"
 
 DEPEND="
 	dev-libs/libzip
-	dev-util/gn
+	dev-build/gn
 	dev-util/pkgconf
 	media-libs/libmodplug
 	media-libs/libpng
