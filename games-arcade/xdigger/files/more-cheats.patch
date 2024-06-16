@@ -1,0 +1,48 @@
+--- xdigger-1.0.10/runlevels.c	1999-07-04 11:52:18.000000000 +0200
++++ xdigger-1.0.10/runlevels.c	2024-06-16 15:45:59.967869154 +0200
+@@ -46,6 +46,7 @@
+ Bool intakt = False;
+ Bool inpause = False, step = False;
+ int lastdiggerarrow;
++int lastdiggerarrow2;
+ Bool in_runlevels = False;
+ Bool in_LevelEditor = False;
+ Bool indiggeridlesequence;
+@@ -300,6 +301,7 @@
+   levelready = False;
+   digger_death = False;
+   lastdiggerarrow = ADIGGERN;
++  lastdiggerarrow2 = ADIGGERN;
+   indiggeridlesequence = False;
+   collected_diamonds = 0;
+   collected_grounds = 0;
+@@ -634,6 +636,9 @@
+ 	id2pixmap_id(field[dx][dy].id, field[dx][dy].flags);
+       if (field[dx][dy].pixmap_id != pixid) field[dx][dy].todraw = True;
+       lastdiggerarrow = arrow;
++      if (arrow != ADIGGERN ) {
++        lastdiggerarrow2 = arrow;
++      }
+     }
+ } /* DiggerStep() */
+ 
+@@ -1320,6 +1325,19 @@
+ 		case XK_Delete: 
+ 		  if (cheat) digger_candie = True;
+ 		  break;
++		case XK_End:
++		  if (cheat) {
++		    if (lastdiggerarrow2 == ADIGGERD && diggerposy < 12 && field[diggerposx][diggerposy+1].id != ID_EXIT) {
++		    	FillField(&field[diggerposx][diggerposy+1], ID_DIAMOND, 0);
++		    } else if (lastdiggerarrow2 == ADIGGERU && diggerposy > 1 && field[diggerposx][diggerposy-1].id != ID_EXIT) {
++		    	FillField(&field[diggerposx][diggerposy-1], ID_DIAMOND, 0);
++		    } else if (lastdiggerarrow2 == ADIGGERL && diggerposx > 1 && field[diggerposx-1][diggerposy].id != ID_EXIT) {
++		    	FillField(&field[diggerposx-1][diggerposy], ID_DIAMOND, 0);
++		    } else if (lastdiggerarrow2 == ADIGGERR && diggerposx < 18 && field[diggerposx+1][diggerposy].id != ID_EXIT) {
++		    	FillField(&field[diggerposx+1][diggerposy], ID_DIAMOND, 0);
++		    }
++		  }
++		  break;
+ 		  case XK_Home:
+ 		    if (cheat)
+ 		      {
