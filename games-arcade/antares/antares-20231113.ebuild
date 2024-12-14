@@ -27,7 +27,7 @@ DEPEND="
 	media-libs/openal
 	media-libs/glfw
 	net-libs/neon
-	sys-devel/clang
+	llvm-core/clang
 	sys-libs/libcxx
 	sys-libs/libcxxabi
 	sys-libs/zlib
