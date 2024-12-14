@@ -28,8 +28,8 @@ DEPEND="
 	media-libs/glfw
 	net-libs/neon
 	llvm-core/clang
-	sys-libs/libcxx
-	sys-libs/libcxxabi
+	llvm-runtimes/libcxx
+	llvm-runtimes/libcxxabi
 	sys-libs/zlib
 	virtual/glu
 	virtual/opengl
