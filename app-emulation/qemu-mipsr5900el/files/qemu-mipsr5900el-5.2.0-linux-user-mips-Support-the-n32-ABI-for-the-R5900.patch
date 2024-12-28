@@ -1,0 +1,25 @@
+commit fdc457c92587df43bacd4834cc80442fcbc16c79
+Author: Fredrik Noring <noring@nocrew.org>
+Date:   Wed Nov 7 17:42:39 2018 +0100
+
+    linux-user/mips: Support the n32 ABI for the R5900
+    
+    Recognise the R5900, which reports itself as MIPS III, as a 64-bit CPU
+    supporting the n32 ABI.
+    
+    Signed-off-by: Fredrik Noring <noring@nocrew.org>
+
+diff --git a/linux-user/mips64/target_elf.h b/linux-user/mips64/target_elf.h
+index ec55d8542a..5f2f2df29f 100644
+--- a/linux-user/mips64/target_elf.h
++++ b/linux-user/mips64/target_elf.h
+@@ -12,6 +12,9 @@ static inline const char *cpu_get_model(uint32_t eflags)
+     if ((eflags & EF_MIPS_ARCH) == EF_MIPS_ARCH_64R6) {
+         return "I6400";
+     }
++    if ((eflags & EF_MIPS_MACH) == EF_MIPS_MACH_5900) {
++        return "R5900";
++    }
+     return "5KEf";
+ }
+ #endif
