@@ -39,6 +39,19 @@ RDEPEND="
 "
 DEPEND="${RDEPEND}"
 
+src_prepare() {
+	cmake_src_prepare
+
+	sed -e '/install(/s: games: bin:' \
+		-e '/install(/s: share/games: share:' \
+		-e "/install(/s: share/doc/endless-sky: share/doc/${PF}:" \
+		-e '/install(/s: CONFIGURATIONS Release::' \
+		-e 's:GLEW REQUIRED:GLEW:' \
+		-i CMakeLists.txt || die
+	sed -i 's:share/games:share:' source/Files.cpp || die
+	sed -i 's:else if(IsParent(STANDARD_PATH, resources)):else:' source/Files.cpp || die
+}
+
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_TESTING=$(usex test)
@@ -54,7 +67,6 @@ src_install() {
 	cmake_src_install
 
 	gzip -d -- "${ED}"/usr/share/man/man6/${PN}.6.gz || die
-	mv "${ED}"/usr/share/doc/endless-sky "${ED}"/usr/share/doc/${PF}
 }
 
 pkg_postinst() {
