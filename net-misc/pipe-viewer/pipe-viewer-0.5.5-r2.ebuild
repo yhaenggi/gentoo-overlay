@@ -68,8 +68,6 @@ pkg_postinst() {
 	elog
 	elog "Check the configuration file in ~/.config/pipe-viewer/"
 	elog "and configure your video player backend."
-
-	use ithreads && ewarn "ensure your perl is build correctly for ithreads. perl-cleaner --reallyall if its broken."
 }
 
 pkg_postrm() {
