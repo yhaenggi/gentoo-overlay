@@ -1,0 +1,1 @@
+ACTION=="add", KERNEL=="sheep_net", MODE="0666", OWNER="1000", GROUP="1000"

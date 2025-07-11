@@ -1,0 +1,11 @@
+diff --git a/BasiliskII/src/Unix/Linux/NetDriver/Makefile b/BasiliskII/src/Unix/Linux/NetDriver/Makefile
+index 50a1d238..e7e9ca62 100644
+--- a/BasiliskII/src/Unix/Linux/NetDriver/Makefile
++++ b/BasiliskII/src/Unix/Linux/NetDriver/Makefile
+@@ -1,5 +1,5 @@
+ # Linux makefile for sheep_net driver
+-KERNEL_DIR	= /lib/modules/$(shell uname -r)
++KERNEL_DIR	= $(shell ls -d /lib/modules/$(shell readlink /usr/src/linux | sed 's/linux-//')*)
+ KERNEL_SOURCE	= $(KERNEL_DIR)/build
+ LV		:= $(shell test -f $(KERNEL_SOURCE)/Rules.make && echo 24 || echo 26)
+ MP		:= $(shell test -f $(KERNEL_SOURCE)/Rules.make && echo "o" || echo "ko")
