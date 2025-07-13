@@ -40,14 +40,17 @@ src_prepare() {
 
 src_configure() {
 	cd SheepShaver/src/Unix || die
-	econf \
-		$(use_enable sdl sdl-audio) \
-		$(use_enable sdl sdl-video) \
-		$(use_enable jit) \
-		$(use_with gtk) \
-		$(use_with bincue) \
-		$(use_with libvhd) \
+	local myeconfargs=(
+		$(use_enable sdl sdl-audio)
+		$(use_enable sdl sdl-video)
+		$(use_enable jit)
+		$(use_with gtk)
+		$(use_with bincue)
+		$(use_with libvhd)
 		$(use_with esd)
+		$(usex arm64 "--enable-addressing=direct,0x10000000" "")
+	)
+	econf "${myeconfargs[@]}"
 }
 
 src_compile() {
