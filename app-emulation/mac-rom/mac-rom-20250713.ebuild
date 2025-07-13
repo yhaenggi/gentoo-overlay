@@ -42,5 +42,5 @@ src_install() {
 }
 
 pkg_postinst() {
-	einfo "ROM files have been installed in /usr/share/mac-rom"
+	elog "ROM files have been installed in /usr/share/mac-rom"
 }
