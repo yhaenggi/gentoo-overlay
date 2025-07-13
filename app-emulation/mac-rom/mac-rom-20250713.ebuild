@@ -28,8 +28,8 @@ BDEPEND=""
 S=${WORKDIR}
 
 src_install() {
-	dodir /usr/share/mac-rom-archive
-	insinto /usr/share/mac-rom-archive
+	dodir /usr/share/mac-rom
+	insinto /usr/share/mac-rom
 	if use all-firmware; then
 		doins -r "${S}/."
 	else
