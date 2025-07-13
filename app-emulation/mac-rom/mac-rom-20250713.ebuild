@@ -40,3 +40,7 @@ src_install() {
 		doins "${S}/3DC27823 - Quadra 950.ROM"
 	fi
 }
+
+pkg_postinst() {
+	einfo "ROM files have been installed in /usr/share/mac-rom"
+}
