@@ -35,5 +35,5 @@ src_compile() {
 src_install() {
 	dobin epspdv3
 	cd vfman22
-	dobin img2d88 vfd2d88 vferase vformat vfread vfread
+	dobin img2d88 vfd2d88 vferase vformat vfread vfwrite
 }
