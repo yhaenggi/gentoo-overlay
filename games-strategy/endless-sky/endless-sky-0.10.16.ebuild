@@ -24,6 +24,7 @@ IUSE="gles2-only test"
 RESTRICT="!test? ( test )"
 
 RDEPEND="
+	media-libs/libavif
 	media-libs/libglvnd
 	media-libs/libjpeg-turbo:=
 	media-libs/libmad
