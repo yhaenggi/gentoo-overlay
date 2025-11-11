@@ -80,6 +80,7 @@ RDEPEND="
 	net-dns/libidn2
 	media-gfx/graphite2
 	app-arch/bzip2
+	dev-qt/qtbase
 "
 
 QA_PREBUILT="*"
