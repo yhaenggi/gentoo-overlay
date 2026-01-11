@@ -26,10 +26,8 @@ BDEPEND=""
 
 src_configure() {
 	./autogen.sh
-	local myconfargs=(
+	local myeconfargs=(
 		--with-init-system=openrc
-		--prefix=/usr
-		--sysconfdir=/etc
 	)
 	econf "${myeconfargs[@]}"
 }
