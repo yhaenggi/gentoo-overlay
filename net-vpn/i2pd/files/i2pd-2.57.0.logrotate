@@ -6,7 +6,7 @@
         create 640 i2pd i2pd
         postrotate
                 if [ -f /run/i2pd/i2pd.pid ]; then
-                    /bin/kill -HUP $(/bin/cat /run/i2pd/i2pd.pid)
+                    /bin/kill -SIGUSR1 $(/bin/cat /run/i2pd/i2pd.pid)
                 fi
         endscript
 }
