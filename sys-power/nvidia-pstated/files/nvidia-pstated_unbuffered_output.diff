@@ -1,0 +1,13 @@
+diff --git a/src/main.c b/src/main.c
+index 25942fb..f1e6c08 100644
+--- a/src/main.c
++++ b/src/main.c
+@@ -167,6 +167,8 @@ static bool enter_pstate(unsigned int i, unsigned int pstateId) {
+ }
+ 
+ static int run(int argc, char * argv[]) {
++  setvbuf(stdout, NULL, _IOLBF, 0);
++  setvbuf(stderr, NULL, _IOLBF, 0);
+   /***** OPTIONS *****/
+   char * disableFanScript = NULL;
+   char * enableFanScript = NULL;

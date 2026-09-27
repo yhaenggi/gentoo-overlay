@@ -1,0 +1,24 @@
+#!/sbin/openrc-run
+# Copyright 2026 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+name="nvidia-pstated daemon"
+description="A daemon that automatically manages the performance states of NVIDIA GPUs."
+command=/usr/bin/nvidia-pstated
+command_args="${nvidia_pstated_args}"
+pidfile="/run/nvidia-pstated.pid"
+
+command_background="yes"
+logfile="/var/log/nvidia-pstated.log"
+output_log="${logfile}"
+error_log="${logfile}"
+
+depend() {
+	use logger
+	need modules
+}
+
+start_pre() {
+	modprobe nvidia || true
+	checkpath --file --owner ${command_user}:${command_user} --mode 0644 "${logfile}"
+}
